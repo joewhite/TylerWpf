@@ -8,11 +8,14 @@
     <Grid>
         <Rectangle Fill="Black"/>
         <Canvas>
-            <Rectangle Fill="Teal" Canvas.Left="8" Canvas.Top="40" Width="128" Height="112"/>
-            <Rectangle Fill="Silver" Canvas.Left="8" Canvas.Top="8" Width="128" Height="40"/>
-            <Tyler:HeroView x:Name="hero" Canvas.Left="64" Canvas.Top="96"/>
-            <Path Fill="Silver" Data="M0,160 L8,152 H136 L144,160 V192 H0"/>
-            <Path Fill="White" Data="M0,0 H144 V160 H0 V16 H16 V144 H128 V16 H0"/>
+            <Canvas.LayoutTransform>
+                <ScaleTransform ScaleX="16" ScaleY="16"/>
+            </Canvas.LayoutTransform>
+            <Rectangle Fill="Teal" Canvas.Left="0.5" Canvas.Top="2.5" Width="8" Height="7"/>
+            <Rectangle Fill="Silver" Canvas.Left="0.5" Canvas.Top="0.5" Width="8" Height="2.5"/>
+            <Tyler:HeroView x:Name="hero" Canvas.Left="4" Canvas.Top="6"/>
+            <Path Fill="Silver" Data="M0,10 L0.5,9.5 H8.5 L9,10 V12 H0"/>
+            <Path Fill="White" Data="M0,0 H9 V10 H0 V1 H1 V9 H8 V1 H0"/>
         </Canvas>
     </Grid>
 </UserControl>

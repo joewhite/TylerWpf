@@ -18,19 +18,19 @@ namespace Tyler
             switch (e.Key)
             {
                 case Key.Left:
-                    Canvas.SetLeft(hero, Canvas.GetLeft(hero) - 16);
+                    Canvas.SetLeft(hero, Canvas.GetLeft(hero) - 1);
                     e.Handled = true;
                     break;
                 case Key.Right:
-                    Canvas.SetLeft(hero, Canvas.GetLeft(hero) + 16);
+                    Canvas.SetLeft(hero, Canvas.GetLeft(hero) + 1);
                     e.Handled = true;
                     break;
                 case Key.Up:
-                    Canvas.SetTop(hero, Canvas.GetTop(hero) - 16);
+                    Canvas.SetTop(hero, Canvas.GetTop(hero) - 1);
                     e.Handled = true;
                     break;
                 case Key.Down:
-                    Canvas.SetTop(hero, Canvas.GetTop(hero) + 16);
+                    Canvas.SetTop(hero, Canvas.GetTop(hero) + 1);
                     e.Handled = true;
                     break;
             }
