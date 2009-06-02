@@ -15,25 +15,32 @@ namespace Tyler
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
+            var oldLeft = Canvas.GetLeft(hero);
+            var oldTop = Canvas.GetTop(hero);
+            var newLeft = oldLeft;
+            var newTop = oldTop;
             switch (e.Key)
             {
                 case Key.Left:
-                    Canvas.SetLeft(hero, Canvas.GetLeft(hero) - 1);
-                    e.Handled = true;
+                    newLeft = oldLeft - 1;
                     break;
                 case Key.Right:
-                    Canvas.SetLeft(hero, Canvas.GetLeft(hero) + 1);
-                    e.Handled = true;
+                    newLeft = oldLeft + 1;
                     break;
                 case Key.Up:
-                    Canvas.SetTop(hero, Canvas.GetTop(hero) - 1);
-                    e.Handled = true;
+                    newTop = oldTop - 1;
                     break;
                 case Key.Down:
-                    Canvas.SetTop(hero, Canvas.GetTop(hero) + 1);
-                    e.Handled = true;
+                    newTop = oldTop + 1;
                     break;
             }
+            if (newLeft == oldLeft && newTop == oldTop)
+                return;
+            Canvas.SetLeft(hero, newLeft);
+            Canvas.SetTop(hero, newTop);
+            Canvas.SetLeft(scroller, -newLeft);
+            Canvas.SetTop(scroller, -newTop);
+            e.Handled = true;
         }
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
