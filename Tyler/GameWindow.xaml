@@ -4,6 +4,6 @@
         xmlns:Tyler="clr-namespace:Tyler"
         Title="Stupid Quest" Width="600" Height="400">
     <Grid>
-        <Tyler:HeroView/>
+        <Tyler:MapView/>
     </Grid>
 </Window>
