@@ -8,10 +8,10 @@
     <Grid>
         <Rectangle Fill="Black"/>
         <Canvas>
-            <Rectangle Fill="Teal" Canvas.Left="16" Canvas.Top="48" Width="112" Height="96"/>
-            <Rectangle Fill="Silver" Canvas.Left="16" Canvas.Top="16" Width="112" Height="32"/>
+            <Rectangle Fill="Teal" Canvas.Left="8" Canvas.Top="40" Width="128" Height="112"/>
+            <Rectangle Fill="Silver" Canvas.Left="8" Canvas.Top="8" Width="128" Height="40"/>
             <Tyler:HeroView x:Name="hero" Canvas.Left="64" Canvas.Top="96"/>
-            <Rectangle Fill="Silver" Canvas.Left="0" Canvas.Top="160" Width="144" Height="32"/>
+            <Path Fill="Silver" Data="M0,160 L8,152 H136 L144,160 V192 H0"/>
             <Path Fill="White" Data="M0,0 H144 V160 H0 V16 H16 V144 H128 V16 H0"/>
         </Canvas>
     </Grid>
