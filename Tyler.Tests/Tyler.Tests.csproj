@@ -8,7 +8,7 @@
     <ProjectGuid>{E3A77B35-7D0A-4A0C-A237-C1703CB1FB70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tyler.Tests</RootNamespace>
+    <RootNamespace>Tyler</RootNamespace>
     <AssemblyName>Tyler.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

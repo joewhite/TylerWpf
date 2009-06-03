@@ -8,7 +8,7 @@
     <ProjectGuid>{8D920C0D-3ACF-4D51-A82A-460EF14E424B}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tyler.Core</RootNamespace>
+    <RootNamespace>Tyler</RootNamespace>
     <AssemblyName>Tyler.Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
