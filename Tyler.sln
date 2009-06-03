@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyler", "Tyler\Tyler.csproj", "{3C8D072F-D920-41A9-9438-4168957D0384}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyler.Tests", "Tyler.Tests\Tyler.Tests.csproj", "{E3A77B35-7D0A-4A0C-A237-C1703CB1FB70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyler.Core", "Tyler.Core\Tyler.Core.csproj", "{8D920C0D-3ACF-4D51-A82A-460EF14E424B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{3C8D072F-D920-41A9-9438-4168957D0384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C8D072F-D920-41A9-9438-4168957D0384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C8D072F-D920-41A9-9438-4168957D0384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A77B35-7D0A-4A0C-A237-C1703CB1FB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A77B35-7D0A-4A0C-A237-C1703CB1FB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A77B35-7D0A-4A0C-A237-C1703CB1FB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A77B35-7D0A-4A0C-A237-C1703CB1FB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D920C0D-3ACF-4D51-A82A-460EF14E424B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D920C0D-3ACF-4D51-A82A-460EF14E424B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D920C0D-3ACF-4D51-A82A-460EF14E424B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D920C0D-3ACF-4D51-A82A-460EF14E424B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
