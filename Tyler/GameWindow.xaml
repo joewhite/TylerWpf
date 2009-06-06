@@ -3,8 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Tyler="clr-namespace:Tyler"
         xmlns:Views="clr-namespace:Tyler.Views;assembly=Tyler.Core"
+        xmlns:ViewModels="clr-namespace:Tyler.ViewModels;assembly=Tyler.Core"
         Title="Stupid Quest" Width="600" Height="400"
         FocusManager.FocusedElement="{Binding ElementName=map}">
+    <Window.Resources>
+        <ViewModels:Zoom x:Key="{x:Type ViewModels:Zoom}"/>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="Views:ZoomCommands.ZoomResetCommand" Executed="ZoomReset_Execute"/>
+        <CommandBinding Command="Views:ZoomCommands.ZoomInCommand" Executed="ZoomIn_Execute"/>
+        <CommandBinding Command="Views:ZoomCommands.ZoomOutCommand" Executed="ZoomOut_Execute"/>
+    </Window.CommandBindings>
+    
     <Views:ZoomDecorator>
         <Tyler:MapView x:Name="map"/>
     </Views:ZoomDecorator>

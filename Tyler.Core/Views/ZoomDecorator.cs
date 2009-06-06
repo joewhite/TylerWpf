@@ -6,14 +6,20 @@ namespace Tyler.Views
 {
     public class ZoomDecorator : Decorator
     {
-        private readonly Zoom m_zoom = new Zoom();
-
         protected override Size ArrangeOverride(Size arrangeSize)
         {
-            var transformableChild = Child as FrameworkElement;
-            if (transformableChild != null)
-                transformableChild.LayoutTransform = m_zoom.GetTransform(arrangeSize.Height);
+            ZoomChild(arrangeSize);
             return base.ArrangeOverride(arrangeSize);
+        }
+        private void ZoomChild(Size arrangeSize)
+        {
+            var zoom = (Zoom) TryFindResource(typeof(Zoom));
+            if (zoom == null)
+                return;
+            var transformableChild = Child as FrameworkElement;
+            if (transformableChild == null)
+                return;
+            transformableChild.LayoutTransform = zoom.GetTransform(arrangeSize.Height);
         }
     }
 }
