@@ -8,9 +8,6 @@
     <Grid>
         <Rectangle Fill="Black"/>
         <Canvas Width="1" Height="1">
-            <Canvas.LayoutTransform>
-                <ScaleTransform ScaleX="16" ScaleY="16"/>
-            </Canvas.LayoutTransform>
             <Canvas Name="scroller" Canvas.Left="-4" Canvas.Top="-6">
                 <Rectangle Fill="Teal" Canvas.Left="0.5" Canvas.Top="2.5" Width="8" Height="7"/>
                 <Rectangle Fill="Silver" Canvas.Left="0.5" Canvas.Top="0.5" Width="8" Height="2.5"/>

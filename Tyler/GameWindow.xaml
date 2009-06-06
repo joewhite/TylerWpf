@@ -2,9 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Tyler="clr-namespace:Tyler"
+        xmlns:Views="clr-namespace:Tyler.Views;assembly=Tyler.Core"
         Title="Stupid Quest" Width="600" Height="400"
         FocusManager.FocusedElement="{Binding ElementName=map}">
-    <Grid>
+    <Views:ZoomDecorator>
         <Tyler:MapView x:Name="map"/>
-    </Grid>
+    </Views:ZoomDecorator>
 </Window>
