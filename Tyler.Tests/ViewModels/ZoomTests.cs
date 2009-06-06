@@ -52,19 +52,9 @@ namespace Tyler.ViewModels
             Assert.That(transform.ScaleY, Is.EqualTo(4.2));
         }
         [Test]
-        public void Transform_WithZoomLevel3_FitsTwentyTiles()
+        public void Transform_WithZoomInLevel3_FitsFiveTiles()
         {
             Zoom.Level = 3;
-
-            var transform = Zoom.GetTransform(42);
-
-            Assert.That(transform.ScaleX, Is.EqualTo(2.1));
-            Assert.That(transform.ScaleY, Is.EqualTo(2.1));
-        }
-        [Test]
-        public void Transform_WithZoomLevelNegative3_FitsFiveTiles()
-        {
-            Zoom.Level = -3;
 
             var transform = Zoom.GetTransform(42);
 
@@ -72,9 +62,19 @@ namespace Tyler.ViewModels
             Assert.That(transform.ScaleY, Is.EqualTo(8.4));
         }
         [Test]
+        public void Transform_WithZoomOutLevel3_FitsTwentyTiles()
+        {
+            Zoom.Level = -3;
+
+            var transform = Zoom.GetTransform(42);
+
+            Assert.That(transform.ScaleX, Is.EqualTo(2.1));
+            Assert.That(transform.ScaleY, Is.EqualTo(2.1));
+        }
+        [Test]
         public void Transform_DoesNotGoBelowTwoPixelsPerTile()
         {
-            Zoom.Level = 9;
+            Zoom.Level = -9;
 
             var transform = Zoom.GetTransform(42);
 
