@@ -7,7 +7,20 @@ namespace Tyler.ViewModels
     {
         private const int TilesVisibleAtDefaultZoom = 10;
 
-        public int Level { get; set; }
+        private int m_level;
+
+        public int Level
+        {
+            get { return m_level; }
+            set
+            {
+                m_level = value;
+                if (LevelChanged != null)
+                    LevelChanged(this, EventArgs.Empty);
+            }
+        }
+
+        public event EventHandler LevelChanged;
 
         public ScaleTransform GetTransform(double clientHeight)
         {

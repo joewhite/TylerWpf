@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Tyler.ViewModels;
 
 namespace Tyler
@@ -16,7 +15,7 @@ namespace Tyler
 
         private Zoom Zoom
         {
-            get { return (Zoom) FindResource(typeof(Zoom)); }
+            get { return (Zoom) FindResource("Zoom"); }
         }
 
         private void ZoomIn_Execute(object sender, ExecutedRoutedEventArgs e)

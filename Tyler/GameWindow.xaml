@@ -7,7 +7,7 @@
         Title="Stupid Quest" Width="600" Height="400"
         FocusManager.FocusedElement="{Binding ElementName=map}">
     <Window.Resources>
-        <ViewModels:Zoom x:Key="{x:Type ViewModels:Zoom}"/>
+        <ViewModels:Zoom x:Key="Zoom"/>
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="Views:ZoomCommands.ZoomResetCommand" Executed="ZoomReset_Execute"/>
@@ -15,7 +15,7 @@
         <CommandBinding Command="Views:ZoomCommands.ZoomOutCommand" Executed="ZoomOut_Execute"/>
     </Window.CommandBindings>
     
-    <Views:ZoomDecorator>
+    <Views:ZoomDecorator Zoom="{StaticResource Zoom}">
         <Tyler:MapView x:Name="map"/>
     </Views:ZoomDecorator>
 </Window>
