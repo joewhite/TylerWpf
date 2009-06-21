@@ -1,7 +1,12 @@
 ﻿<UserControl x:Class="Tyler.HeroView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="16" Height="16">
+    <UserControl.Resources>
+        <BitmapImage x:Key="elfAll" UriSource="Sprites/elf.png"/>
+        <CroppedBitmap x:Key="elfS1" Source="{StaticResource elfAll}" SourceRect="240 640 240 320"/> 
+    </UserControl.Resources>
     <Canvas>
-        <Rectangle Canvas.Left="-0.25" Canvas.Top="-1" Width="1.5" Height="2" Fill="Yellow"/>
+        <Image Canvas.Left="-0.25" Canvas.Top="-1" Width="1.5" Height="2"
+               Source="{StaticResource elfS1}"/>
     </Canvas>
 </UserControl>
