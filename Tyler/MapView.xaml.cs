@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
+using Tyler.Models;
 
 namespace Tyler
 {
@@ -23,15 +24,19 @@ namespace Tyler
             {
                 case Key.Left:
                     newLeft = oldLeft - 1;
+                    hero.SetFacing(Facing.West);
                     break;
                 case Key.Right:
                     newLeft = oldLeft + 1;
+                    hero.SetFacing(Facing.East);
                     break;
                 case Key.Up:
                     newTop = oldTop - 1;
+                    hero.SetFacing(Facing.North);
                     break;
                 case Key.Down:
                     newTop = oldTop + 1;
+                    hero.SetFacing(Facing.South);
                     break;
             }
             if (newLeft == oldLeft && newTop == oldTop)
