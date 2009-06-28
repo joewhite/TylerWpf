@@ -15,19 +15,26 @@ namespace Tyler
             InitializeComponent();
             Spritesheet = (BitmapImage) FindResource("spritesheet");
             Facings = new Dictionary<Facing, CroppedBitmap>();
-            Facings[Facing.North] = new CroppedBitmap(Spritesheet, new Int32Rect(240, 0, 240, 320));
-            Facings[Facing.East] = new CroppedBitmap(Spritesheet, new Int32Rect(240, 320, 240, 320));
-            Facings[Facing.South] = new CroppedBitmap(Spritesheet, new Int32Rect(240, 640, 240, 320));
-            Facings[Facing.West] = new CroppedBitmap(Spritesheet, new Int32Rect(240, 960, 240, 320));
             SetFacing(Facing.South);
         }
 
         private Dictionary<Facing, CroppedBitmap> Facings { get; set; }
         private BitmapImage Spritesheet { get; set; }
 
+        private CroppedBitmap GetImage(Facing facing)
+        {
+            if (Spritesheet == null)
+                return null;
+            if (!Facings.ContainsKey(facing))
+            {
+                var rect = new Int32Rect(240, ((int) facing)*320, 240, 320);
+                Facings[facing] = new CroppedBitmap(Spritesheet, rect);
+            }
+            return Facings[facing];
+        }
         public void SetFacing(Facing value)
         {
-            image.Source = Facings[value];
+            image.Source = GetImage(value);
         }
     }
 }
