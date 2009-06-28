@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyler.Tests", "Tyler.Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyler.Core", "Tyler.Core\Tyler.Core.csproj", "{8D920C0D-3ACF-4D51-A82A-460EF14E424B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA043C34-4527-4995-815D-286B503B3029}"
+	ProjectSection(SolutionItems) = preProject
+		Credits.txt = Credits.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
