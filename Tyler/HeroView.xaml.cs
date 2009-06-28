@@ -10,14 +10,25 @@ namespace Tyler
     /// </summary>
     public partial class HeroView
     {
+        private Facing m_facing;
+
         public HeroView()
         {
             InitializeComponent();
             Spritesheet = (BitmapImage) FindResource("spritesheet");
             Facings = new Dictionary<Facing, CroppedBitmap>();
-            SetFacing(Facing.South);
+            Facing = Facing.South;
         }
 
+        public Facing Facing
+        {
+            get { return m_facing; }
+            set
+            {
+                m_facing = value;
+                UpdateImage();
+            }
+        }
         private Dictionary<Facing, CroppedBitmap> Facings { get; set; }
         private BitmapImage Spritesheet { get; set; }
 
@@ -32,9 +43,9 @@ namespace Tyler
             }
             return Facings[facing];
         }
-        public void SetFacing(Facing value)
+        private void UpdateImage()
         {
-            image.Source = GetImage(value);
+            image.Source = GetImage(m_facing);
         }
     }
 }

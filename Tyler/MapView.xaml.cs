@@ -30,19 +30,19 @@ namespace Tyler
             {
                 case Key.Left:
                     newLeft = oldLeft - 1;
-                    hero.SetFacing(Facing.West);
+                    hero.Facing = Facing.West;
                     break;
                 case Key.Right:
                     newLeft = oldLeft + 1;
-                    hero.SetFacing(Facing.East);
+                    hero.Facing = Facing.East;
                     break;
                 case Key.Up:
                     newTop = oldTop - 1;
-                    hero.SetFacing(Facing.North);
+                    hero.Facing = Facing.North;
                     break;
                 case Key.Down:
                     newTop = oldTop + 1;
-                    hero.SetFacing(Facing.South);
+                    hero.Facing = Facing.South;
                     break;
             }
             if (newLeft == oldLeft && newTop == oldTop)
