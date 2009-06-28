@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Tyler.Models;
 
@@ -16,7 +17,8 @@ namespace Tyler
 
         private bool IsPassable(int x, int y)
         {
-            return x >= 1 && x <= 7 && y >= 3 && y <= 9;
+            return (x >= 1 && x <= 7 && y >= 3 && y <= 9) ||
+                   treeTrunk.Data.FillContains(new Point(x + .5, y + .5));
         }
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
