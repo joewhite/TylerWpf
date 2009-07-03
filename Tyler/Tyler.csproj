@@ -67,7 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="HeroView.xaml">
+    <Page Include="SpriteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,8 +85,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HeroView.xaml.cs">
-      <DependentUpon>HeroView.xaml</DependentUpon>
+    <Compile Include="SpriteView.xaml.cs">
+      <DependentUpon>SpriteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapView.xaml.cs">
       <DependentUpon>MapView.xaml</DependentUpon>
@@ -122,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Sprites\elf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sprites\cat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

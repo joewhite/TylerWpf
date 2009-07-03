@@ -1,21 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using Tyler.Models;
 
 namespace Tyler
 {
     /// <summary>
-    /// Interaction logic for HeroView.xaml
+    /// Interaction logic for SpriteView.xaml
     /// </summary>
-    public partial class HeroView
+    public partial class SpriteView
     {
+        public static readonly DependencyProperty UriProperty =
+            DependencyProperty.Register("Uri", typeof(Uri), typeof(SpriteView),
+                                        new PropertyMetadata(UriChanged));
+
         private Facing m_facing;
 
-        public HeroView()
+        public SpriteView()
         {
             InitializeComponent();
-            Spritesheet = (BitmapImage) FindResource("spritesheet");
             Facings = new Dictionary<Facing, CroppedBitmap>();
             Facing = Facing.South;
         }
@@ -31,6 +36,11 @@ namespace Tyler
         }
         private Dictionary<Facing, CroppedBitmap> Facings { get; set; }
         private BitmapImage Spritesheet { get; set; }
+        public Uri Uri
+        {
+            get { return (Uri) GetValue(UriProperty); }
+            set { SetValue(UriProperty, value); }
+        }
 
         private CroppedBitmap GetImage(Facing facing)
         {
@@ -46,6 +56,16 @@ namespace Tyler
         private void UpdateImage()
         {
             image.Source = GetImage(m_facing);
+        }
+        private void UriChanged()
+        {
+            Spritesheet = new BitmapImage(Uri) {BaseUri = BaseUriHelper.GetBaseUri(this)};
+            Facings.Clear();
+            UpdateImage();
+        }
+        private static void UriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SpriteView) d).UriChanged();
         }
     }
 }
