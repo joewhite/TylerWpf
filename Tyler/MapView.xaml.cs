@@ -26,16 +26,16 @@ namespace Tyler
             switch (e.Key)
             {
                 case Key.Left:
-                    Walk(Facing.West, -1, 0);
+                    Walk(Facing.West);
                     break;
                 case Key.Right:
-                    Walk(Facing.East, 1, 0);
+                    Walk(Facing.East);
                     break;
                 case Key.Up:
-                    Walk(Facing.North, 0, -1);
+                    Walk(Facing.North);
                     break;
                 case Key.Down:
-                    Walk(Facing.South, 0, 1);
+                    Walk(Facing.South);
                     break;
                 default:
                     e.Handled = false;
@@ -47,11 +47,11 @@ namespace Tyler
             Focus();
             e.Handled = true;
         }
-        private void Walk(Facing facing, int deltaX, int deltaY)
+        private void Walk(Facing facing)
         {
             hero.Facing = facing;
-            var newLeft = Canvas.GetLeft(hero) + deltaX;
-            var newTop = Canvas.GetTop(hero) + deltaY;
+            var newLeft = Canvas.GetLeft(hero) + facing.DeltaX();
+            var newTop = Canvas.GetTop(hero) + facing.DeltaY();
             if (!IsPassable((int) newLeft, (int) newTop))
                 return;
             Canvas.SetLeft(hero, newLeft);
