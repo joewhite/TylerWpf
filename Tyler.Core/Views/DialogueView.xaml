@@ -5,7 +5,7 @@
              xmlns:Views="clr-namespace:Tyler.Views">
     <UserControl.Resources>
         <!-- Configuration -->
-        <FontFamily x:Key="fontFamily">Nyala</FontFamily>
+        <FontFamily x:Key="fontFamily">../Fonts/#Nyala</FontFamily>
         <sys:Double x:Key="fontSize">24.5</sys:Double>
         <FlowDocument x:Key="dialogue">
             <Paragraph>
