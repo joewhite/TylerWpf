@@ -37,11 +37,18 @@
         <Style TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
-        <Style TargetType="Border">
+        <Style x:Key="textBorder" TargetType="Border">
             <Setter Property="Background" Value="{StaticResource backgroundBrush}"/>
             <Setter Property="BorderBrush" Value="{StaticResource borderBrush}"/>
             <Setter Property="TextBlock.FontFamily" Value="{StaticResource fontFamily}"/>
             <Setter Property="TextBlock.Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="Border" BasedOn="{StaticResource textBorder}"/>
+        <Style x:Key="flair" TargetType="Border" BasedOn="{StaticResource textBorder}">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="6 0 6 0"/>
+            <Setter Property="TextBlock.FontSize" Value="10"/>
         </Style>
         <Style TargetType="FlowDocument">
             <Setter Property="PagePadding" Value="0"/>
@@ -66,8 +73,7 @@
                 </FlowDocumentPageViewer>
             </Border>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 -10 10 0">
-                <Border CornerRadius="5" BorderThickness="2" Padding="6 0 6 0"
-                        TextBlock.FontSize="10">
+                <Border Style="{StaticResource flair}">
                     <StackPanel Orientation="Horizontal">
                         <Canvas Width="8" Height="10">
                             <Path Fill="White" Data="M0,7 L8,7 L4,2" Opacity="0.6"/>
@@ -75,8 +81,7 @@
                         <TextBlock FontSize="10" Margin="2 0 0 0" Opacity="0.6">Back</TextBlock>
                     </StackPanel>
                 </Border>
-                <Border CornerRadius="5" BorderThickness="2" Padding="6 0 6 0"
-                        TextBlock.FontSize="10">
+                <Border Style="{StaticResource flair}">
                     <StackPanel Orientation="Horizontal">
                         <Canvas Width="8" Height="10">
                             <Path Fill="White" Data="M0,3 L8,3 L4,8" Opacity="0.6"/>
@@ -84,8 +89,7 @@
                         <TextBlock FontSize="10" Margin="2 0 0 0" Opacity="0.6">More</TextBlock>
                     </StackPanel>
                 </Border>
-                <Border CornerRadius="5" BorderThickness="2" Padding="6 0 6 0"
-                        TextBlock.FontSize="10">
+                <Border Style="{StaticResource flair}">
                     <StackPanel Orientation="Horizontal">
                         <Canvas Width="10" Height="10" Opacity="0.8">
                             <Ellipse Width="10" Height="10" Stroke="Black" StrokeThickness="0.5">
