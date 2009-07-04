@@ -4,7 +4,7 @@
         xmlns:Tyler="clr-namespace:Tyler"
         xmlns:Views="clr-namespace:Tyler.Views;assembly=Tyler.Core"
         xmlns:ViewModels="clr-namespace:Tyler.ViewModels;assembly=Tyler.Core"
-        Title="Stupid Quest" Width="600" Height="400"
+        Title="Stupid Quest" Width="600" Height="470"
         FocusManager.FocusedElement="{Binding ElementName=map}">
     <Window.Resources>
         <ViewModels:Zoom x:Key="Zoom"/>
@@ -14,8 +14,11 @@
         <CommandBinding Command="Views:ZoomCommands.ZoomInCommand" Executed="ZoomIn_Execute"/>
         <CommandBinding Command="Views:ZoomCommands.ZoomOutCommand" Executed="ZoomOut_Execute"/>
     </Window.CommandBindings>
-    
-    <Views:ZoomDecorator Zoom="{StaticResource Zoom}">
-        <Tyler:MapView x:Name="map"/>
-    </Views:ZoomDecorator>
+
+    <Grid>
+        <Views:ZoomDecorator Zoom="{StaticResource Zoom}">
+            <Tyler:MapView x:Name="map"/>
+        </Views:ZoomDecorator>
+        <Views:DialogueView/>
+    </Grid>
 </Window>
