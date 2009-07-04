@@ -1,8 +1,10 @@
 ﻿<UserControl x:Class="Tyler.Views.DialogueView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:Views="clr-namespace:Tyler.Views">
     <UserControl.Resources>
+        <!-- Configuration -->
         <FontFamily x:Key="fontFamily">Nyala</FontFamily>
         <sys:Double x:Key="fontSize">24.5</sys:Double>
         <FlowDocument x:Key="dialogue">
@@ -20,6 +22,7 @@
             </Paragraph>
             <Paragraph BreakPageBefore="True">But if ye tell anyone, I'll slit yer gullet.</Paragraph>
         </FlowDocument>
+        <!-- Resources -->
         <LinearGradientBrush x:Key="borderBrush" StartPoint="0,0" EndPoint="1,1">
             <LinearGradientBrush.GradientStops>
                 <GradientStop Color="#8CC9" Offset="0"/>
@@ -34,6 +37,9 @@
                 <GradientStop Color="#8005" Offset="1"/>
             </LinearGradientBrush.GradientStops>
         </LinearGradientBrush>
+        <Views:VisibleWhenValueConverter x:Key="visibleWhenFalse" Value="False"/>
+        <Views:VisibleWhenValueConverter x:Key="visibleWhenTrue" Value="True"/>
+        <!-- Styles -->
         <Style TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
@@ -64,7 +70,7 @@
         <StackPanel Width="400" Height="300">
             <Border Height="90" CornerRadius="8" BorderThickness="5" Padding="4 0"
                     TextBlock.FontSize="21">
-                <FlowDocumentPageViewer Document="{StaticResource dialogue}">
+                <FlowDocumentPageViewer Name="pages" Document="{StaticResource dialogue}">
                     <FlowDocumentPageViewer.Template>
                         <ControlTemplate TargetType="{x:Type FlowDocumentPageViewer}">
                             <DocumentPageView FlowDocumentPageViewer.IsMasterPage="True"/>
@@ -73,7 +79,8 @@
                 </FlowDocumentPageViewer>
             </Border>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 -10 10 0">
-                <Border Style="{StaticResource flair}">
+                <Border Style="{StaticResource flair}"
+                        Visibility="{Binding CanGoToPreviousPage, ElementName=pages, Converter={StaticResource visibleWhenTrue}}">
                     <StackPanel Orientation="Horizontal">
                         <Canvas Width="8" Height="10">
                             <Path Fill="White" Data="M0,7 L8,7 L4,2" Opacity="0.6"/>
@@ -81,7 +88,8 @@
                         <TextBlock FontSize="10" Margin="2 0 0 0" Opacity="0.6">Back</TextBlock>
                     </StackPanel>
                 </Border>
-                <Border Style="{StaticResource flair}">
+                <Border Style="{StaticResource flair}"
+                        Visibility="{Binding CanGoToNextPage, ElementName=pages, Converter={StaticResource visibleWhenTrue}}">
                     <StackPanel Orientation="Horizontal">
                         <Canvas Width="8" Height="10">
                             <Path Fill="White" Data="M0,3 L8,3 L4,8" Opacity="0.6"/>
@@ -89,7 +97,8 @@
                         <TextBlock FontSize="10" Margin="2 0 0 0" Opacity="0.6">More</TextBlock>
                     </StackPanel>
                 </Border>
-                <Border Style="{StaticResource flair}">
+                <Border Style="{StaticResource flair}"
+                        Visibility="{Binding CanGoToNextPage, ElementName=pages, Converter={StaticResource visibleWhenFalse}}">
                     <StackPanel Orientation="Horizontal">
                         <Canvas Width="10" Height="10" Opacity="0.8">
                             <Ellipse Width="10" Height="10" Stroke="Black" StrokeThickness="0.5">

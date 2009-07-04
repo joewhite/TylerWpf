@@ -78,6 +78,7 @@
     <Compile Include="Views\DialogueView.xaml.cs">
       <DependentUpon>DialogueView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VisibleWhenValueConverter.cs" />
     <Compile Include="Views\ZoomCommands.cs" />
     <Compile Include="Views\ZoomDecorator.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
