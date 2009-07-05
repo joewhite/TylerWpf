@@ -21,11 +21,13 @@ namespace Tyler
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             var command = InputCommand.FromKeyInput(e);
-            if (command.Type != InputCommandType.None)
-            {
-                e.Handled = true;
-                map.ProcessInput(command);
-            }
+            if (command.Type == InputCommandType.None)
+                return;
+
+            e.Handled = true; // this is a game key, not a WPF framework key
+            dialogueView.ProcessInput(command);
+            if (!command.Handled)
+                mapView.ProcessInput(command);
         }
         private void ZoomIn_Execute(object sender, ExecutedRoutedEventArgs e)
         {

@@ -17,8 +17,8 @@
 
     <Grid>
         <Views:ZoomDecorator Zoom="{StaticResource Zoom}">
-            <Tyler:MapView x:Name="map"/>
+            <Tyler:MapView x:Name="mapView"/>
         </Views:ZoomDecorator>
-        <Views:DialogueView/>
+        <Views:DialogueView x:Name="dialogueView"/>
     </Grid>
 </Window>
