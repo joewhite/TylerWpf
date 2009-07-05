@@ -18,6 +18,15 @@ namespace Tyler
             get { return (Zoom) FindResource("Zoom"); }
         }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            var command = InputCommand.FromKeyInput(e);
+            if (command.Type != InputCommandType.None)
+            {
+                e.Handled = true;
+                map.ProcessInput(command);
+            }
+        }
         private void ZoomIn_Execute(object sender, ExecutedRoutedEventArgs e)
         {
             Zoom.ZoomIn();

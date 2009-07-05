@@ -5,7 +5,7 @@
         xmlns:Views="clr-namespace:Tyler.Views;assembly=Tyler.Core"
         xmlns:ViewModels="clr-namespace:Tyler.ViewModels;assembly=Tyler.Core"
         Title="Stupid Quest" Width="600" Height="470"
-        FocusManager.FocusedElement="{Binding ElementName=map}">
+        KeyDown="Window_KeyDown">
     <Window.Resources>
         <ViewModels:Zoom x:Key="Zoom"/>
     </Window.Resources>

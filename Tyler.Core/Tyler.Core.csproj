@@ -74,6 +74,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\InputCommand.cs" />
+    <Compile Include="ViewModels\InputCommandType.cs" />
     <Compile Include="ViewModels\Zoom.cs" />
     <Compile Include="Views\DialogueView.xaml.cs">
       <DependentUpon>DialogueView.xaml</DependentUpon>

@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Tyler.Models;
+using Tyler.ViewModels;
 
 namespace Tyler
 {
@@ -20,32 +22,27 @@ namespace Tyler
             return (x >= 1 && x <= 17 && y >= 3 && y <= 9) ||
                    treeTrunk.Data.FillContains(new Point(x + .5, y + .5));
         }
-        private void UserControl_KeyDown(object sender, KeyEventArgs e)
+        public void ProcessInput(InputCommand command)
         {
-            e.Handled = true;
-            switch (e.Key)
+            command.Handled = true;
+            switch (command.Type)
             {
-                case Key.Left:
+                case InputCommandType.West:
                     Walk(Facing.West);
                     break;
-                case Key.Right:
+                case InputCommandType.East:
                     Walk(Facing.East);
                     break;
-                case Key.Up:
+                case InputCommandType.North:
                     Walk(Facing.North);
                     break;
-                case Key.Down:
+                case InputCommandType.South:
                     Walk(Facing.South);
                     break;
                 default:
-                    e.Handled = false;
-                    return;
+                    command.Handled = false;
+                    break;
             }
-        }
-        private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Focus();
-            e.Handled = true;
         }
         private void Walk(Facing facing)
         {
