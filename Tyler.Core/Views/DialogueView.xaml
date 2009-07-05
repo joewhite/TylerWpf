@@ -12,13 +12,10 @@
                 <Run Foreground="Gold">Captain:</Run>
                 Arr! Me poor kitty be stuck in this big, scary tree!
             </Paragraph>
-            <Paragraph>
-                <Run Foreground="Gold">Kitty:</Run>
-                Mrow?
-            </Paragraph>
+            <Paragraph BreakPageBefore="True">...?</Paragraph>
             <Paragraph>
                 <Run Foreground="Gold">Captain:</Run>
-                And I be scared o' heights!
+                Well, I be scared o' heights!
             </Paragraph>
             <Paragraph BreakPageBefore="True">But if ye tell anyone, I'll slit yer gullet.</Paragraph>
         </FlowDocument>
