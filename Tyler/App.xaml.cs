@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Autofac.Builder;
+using Tyler.Models;
+using Tyler.ViewModels;
 
 namespace Tyler
 {
@@ -14,6 +16,7 @@ namespace Tyler
             var builder = new ContainerBuilder();
             builder.RegisterTypesAssignableTo<Window>().FactoryScoped();
             builder.RegisterTypesAssignableTo<UserControl>().FactoryScoped();
+            builder.Register<DialogueViewModel>().As<DialogueViewModel>().As<IDialogueService>().ContainerScoped();
             using (var container = builder.Build())
             {
                 var gameWindow = container.Resolve<GameWindow>();

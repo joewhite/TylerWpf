@@ -12,6 +12,11 @@ namespace Tyler.Views
         {
             InitializeComponent();
         }
+        public DialogueView(DialogueViewModel viewModel)
+        {
+            InitializeComponent();
+            DataContext = viewModel;
+        }
 
         public void ProcessInput(InputCommand command)
         {

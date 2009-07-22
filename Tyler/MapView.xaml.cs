@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
+using System.Windows.Documents;
+using System.Windows.Media;
 using Tyler.Models;
 using Tyler.ViewModels;
 
@@ -12,9 +12,21 @@ namespace Tyler
     /// </summary>
     public partial class MapView
     {
+        private readonly IDialogueService m_dialogueService = new NullDialogueService();
+
         public MapView()
         {
             InitializeComponent();
+        }
+        public MapView(IDialogueService dialogueService)
+        {
+            InitializeComponent();
+            m_dialogueService = dialogueService;
+        }
+
+        public IDialogueService DialogueService
+        {
+            get { return m_dialogueService; }
         }
 
         private bool IsPassable(int x, int y)
@@ -39,10 +51,39 @@ namespace Tyler
                 case InputCommandType.South:
                     Walk(Facing.South);
                     break;
+                case InputCommandType.Action:
+                    Talk();
+                    break;
                 default:
                     command.Handled = false;
                     break;
             }
+        }
+        private void Talk()
+        {
+            var document = new FlowDocument();
+
+            var firstParagraph = new Paragraph();
+            firstParagraph.Inlines.Add(new Run("Captain: ") {Foreground = Brushes.Gold});
+            firstParagraph.Inlines.Add(new Run("Arr! Me poor kitty be stuck in this big, scary tree!"));
+            document.Blocks.Add(firstParagraph);
+
+            var secondParagraph = new Paragraph();
+            secondParagraph.Inlines.Add(new Run("Hero: ") {Foreground = Brushes.Gold});
+            secondParagraph.Inlines.Add(new Run("...?"));
+            document.Blocks.Add(secondParagraph);
+
+            var thirdParagraph = new Paragraph();
+            thirdParagraph.Inlines.Add(new Run("Captain: ") {Foreground = Brushes.Gold});
+            thirdParagraph.Inlines.Add(new Run("Well, I be afraid o' heights!"));
+            document.Blocks.Add(thirdParagraph);
+
+            var fourthParagraph = new Paragraph {BreakPageBefore = true};
+            fourthParagraph.Inlines.Add(new Run("Captain: ") {Foreground = Brushes.Gold});
+            fourthParagraph.Inlines.Add(new Run("But if ye tell anyone, I'll slit yer gullet."));
+            document.Blocks.Add(fourthParagraph);
+
+            DialogueService.Show(document);
         }
         private void Walk(Facing facing)
         {
