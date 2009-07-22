@@ -15,10 +15,9 @@
         <CommandBinding Command="Views:ZoomCommands.ZoomOutCommand" Executed="ZoomOut_Execute"/>
     </Window.CommandBindings>
 
-    <Grid>
+    <Grid Name="layers">
         <Views:ZoomDecorator Zoom="{StaticResource Zoom}">
             <Tyler:MapView x:Name="mapView"/>
         </Views:ZoomDecorator>
-        <Views:DialogueView x:Name="dialogueView"/>
     </Grid>
 </Window>

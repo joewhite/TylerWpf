@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Autofac.Builder;
 
 namespace Tyler
@@ -12,6 +13,7 @@ namespace Tyler
         {
             var builder = new ContainerBuilder();
             builder.RegisterTypesAssignableTo<Window>().FactoryScoped();
+            builder.RegisterTypesAssignableTo<UserControl>().FactoryScoped();
             using (var container = builder.Build())
             {
                 var gameWindow = container.Resolve<GameWindow>();

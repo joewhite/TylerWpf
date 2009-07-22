@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using Tyler.ViewModels;
+using Tyler.Views;
 
 namespace Tyler
 {
@@ -12,7 +13,13 @@ namespace Tyler
         {
             InitializeComponent();
         }
+        public GameWindow(DialogueView dialogueView)
+        {
+            InitializeComponent();
+            layers.Children.Add(DialogueView = dialogueView);
+        }
 
+        private DialogueView DialogueView { get; set; }
         private Zoom Zoom
         {
             get { return (Zoom) FindResource("Zoom"); }
@@ -25,7 +32,8 @@ namespace Tyler
                 return;
 
             e.Handled = true; // this is a game key, not a WPF framework key
-            dialogueView.ProcessInput(command);
+            if (DialogueView != null)
+                DialogueView.ProcessInput(command);
             if (!command.Handled)
                 mapView.ProcessInput(command);
         }
