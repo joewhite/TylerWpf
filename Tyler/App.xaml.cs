@@ -16,7 +16,8 @@ namespace Tyler
             var builder = new ContainerBuilder();
             builder.RegisterTypesAssignableTo<Window>().FactoryScoped();
             builder.RegisterTypesAssignableTo<UserControl>().FactoryScoped();
-            builder.Register<DialogueViewModel>().As<DialogueViewModel>().As<IDialogueService>().ContainerScoped();
+            builder.Register<DialogueViewModel>().As<DialogueViewModel>().As<IDialogueService>().
+                ContainerScoped();
             using (var container = builder.Build())
             {
                 var gameWindow = container.Resolve<GameWindow>();

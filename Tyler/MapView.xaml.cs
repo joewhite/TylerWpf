@@ -65,7 +65,8 @@ namespace Tyler
 
             var firstParagraph = new Paragraph();
             firstParagraph.Inlines.Add(new Run("Captain: ") {Foreground = Brushes.Gold});
-            firstParagraph.Inlines.Add(new Run("Arr! Me poor kitty be stuck in this big, scary tree!"));
+            firstParagraph.Inlines.Add(
+                new Run("Arr! Me poor kitty be stuck in this big, scary tree!"));
             document.Blocks.Add(firstParagraph);
 
             var secondParagraph = new Paragraph();
