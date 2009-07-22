@@ -13,13 +13,15 @@ namespace Tyler
         {
             InitializeComponent();
         }
-        public GameWindow(DialogueView dialogueView)
+        public GameWindow(MapView mapView, DialogueView dialogueView)
         {
             InitializeComponent();
+            mapZoomContainer.Child = MapView = mapView;
             layers.Children.Add(DialogueView = dialogueView);
         }
 
         private DialogueView DialogueView { get; set; }
+        private MapView MapView { get; set; }
         private Zoom Zoom
         {
             get { return (Zoom) FindResource("Zoom"); }
@@ -34,8 +36,8 @@ namespace Tyler
             e.Handled = true; // this is a game key, not a WPF framework key
             if (DialogueView != null)
                 DialogueView.ProcessInput(command);
-            if (!command.Handled)
-                mapView.ProcessInput(command);
+            if (!command.Handled && MapView != null)
+                MapView.ProcessInput(command);
         }
         private void ZoomIn_Execute(object sender, ExecutedRoutedEventArgs e)
         {
