@@ -59,6 +59,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyCommon.cs">
+      <Link>Properties\AssemblyCommon.cs</Link>
+    </Compile>
     <Compile Include="Models\Facing.cs" />
     <Compile Include="Models\FacingHelper.cs" />
     <Compile Include="Models\IDialogueService.cs" />

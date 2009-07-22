@@ -89,6 +89,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyCommon.cs">
+      <Link>Properties\AssemblyCommon.cs</Link>
+    </Compile>
     <Compile Include="SpriteView.xaml.cs">
       <DependentUpon>SpriteView.xaml</DependentUpon>
     </Compile>
