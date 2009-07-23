@@ -4,7 +4,10 @@
              xmlns:Tyler="clr-namespace:Tyler">
     <Grid>
         <Rectangle Fill="Black"/>
-        <Canvas Width="1" Height="1">
+        <Canvas Width="0" Height="0">
+            <Canvas.RenderTransform>
+                <TranslateTransform X="-0.5" Y="-0.5"/>
+            </Canvas.RenderTransform>
             <Canvas Name="scroller" Canvas.Left="-4" Canvas.Top="-6">
                 <Rectangle Fill="Green" Canvas.Left="0.5" Canvas.Top="2.5" Width="18" Height="7"/>
                 <Rectangle Fill="Silver" Canvas.Left="0.5" Canvas.Top="0.5" Width="18" Height="2.5"/>
