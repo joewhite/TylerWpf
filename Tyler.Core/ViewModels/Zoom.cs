@@ -25,7 +25,7 @@ namespace Tyler.ViewModels
         public ScaleTransform GetTransform(double clientHeight)
         {
             var relativeScale = clientHeight*Math.Pow(2, Level/3.0);
-            var requestedScale = relativeScale/TilesVisibleAtDefaultZoom;
+            var requestedScale = Math.Round(relativeScale/TilesVisibleAtDefaultZoom);
             var actualScale = Math.Max(requestedScale, 2);
             return new ScaleTransform(actualScale, actualScale);
         }
